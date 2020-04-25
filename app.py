@@ -10,7 +10,7 @@ from torch.utils.data import DataLoader   #data from csv read usko into ptorch f
 
 
 #Task1
-app = Flask(__name__)
+application = Flask(__name__)
 proposed_class_index = json.load(open('proposed_class_index.json'))
 
 #model = models.densenet121(pretrained=True)  #####
@@ -45,7 +45,7 @@ def get_prediction(test_data):
 
 
 
-@app.route('/web', methods=['POST'])
+@application.route('/web', methods=['POST'])
 def predict():
     if request.method == 'POST':
         #req_data = request.get_json()
@@ -68,5 +68,5 @@ if __name__ == '__main__':
     #X=(get_prediction(test_dataset))
     #print("Json")
     #print(type(X))
-    #app.run()
-    app.run(port=os.getenv('PORT', 5000))
+    application.run()
+    #app.run(port=os.getenv('PORT', 5000))
